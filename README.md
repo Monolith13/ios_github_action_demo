@@ -1,4 +1,3 @@
-# ios_github_action_demo
 
 # ENG
 Demo project of iOS app for Github Action
