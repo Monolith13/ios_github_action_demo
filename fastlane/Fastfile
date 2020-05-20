@@ -1,23 +1,31 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
-
+fastlane_version "2.148.0"
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
+
+  $derivedDataPath = './DerivedData/'
+  $uiTestScheme = 'GithubActionDemo'
+
+  desc 'Build iOS simulator app'
+  lane :build_simulator_app do
+    gym(
+      scheme: $uiTestScheme,
+      configuration: "Debug",
+      skip_archive: true, 
+      skip_package_ipa: true,
+      destination: "generic/platform=iOS Simulator",
+      derived_data_path: $derivedDataPath,
+      xcargs: "-sdk iphonesimulator ONLY_ACTIVE_ARCH=YES build-for-testing COMPILER_INDEX_STORE_ENABLE=NO"
+    )
   end
+
+  desc 'Install pods'
+  lane :install_pods do
+    cocoapods(
+      clean_install: true,
+      try_repo_update_on_error: true,
+      use_bundle_exec: true
+    )
+  end  
+
 end
