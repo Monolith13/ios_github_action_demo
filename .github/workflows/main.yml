@@ -20,6 +20,11 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
         
+    - name: Clean caches via Fastlane 🚀
+      uses: maierj/fastlane-action@v1.4.0
+      with:
+        lane: 'clean_caches'    
+        
     - name: Install pods via Fastlane 🚀
       uses: maierj/fastlane-action@v1.4.0
       with:
@@ -29,3 +34,8 @@ jobs:
       uses: maierj/fastlane-action@v1.4.0
       with:
         lane: 'build_simulator_app'
+        
+    - name: Run UI-tests via Fastlane 🚀
+      uses: maierj/fastlane-action@v1.4.0
+      with:
+        lane: 'test_single_mode'
