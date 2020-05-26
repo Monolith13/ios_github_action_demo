@@ -1,16 +1,24 @@
 PODS:
   - FLEX (4.1.1)
+  - Nimble (8.0.7)
+  - Quick (2.2.0)
 
 DEPENDENCIES:
   - FLEX
+  - Nimble
+  - Quick
 
 SPEC REPOS:
   trunk:
     - FLEX
+    - Nimble
+    - Quick
 
 SPEC CHECKSUMS:
   FLEX: 81096107977a09836eb440173010ceeef01105d6
+  Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
+  Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
 
-PODFILE CHECKSUM: a0fefc9201ae706d076a7f5f02d48c6248df65b9
+PODFILE CHECKSUM: a01d8b9fcc05217951e23995420921aea92dbb6f
 
 COCOAPODS: 1.9.1
