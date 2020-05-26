@@ -47,14 +47,14 @@ extension XCTestCase {
     // Launch app
     @discardableResult func runApp(_ app: XCUIApplication, _ argumentsParameters: [String] = [], _ environmentParameters: [String: String] = [:]) -> XCUIApplication {
         XCTContext.runActivity(named: "Run app on \(UIDevice.current.name) - \(UIDevice.current.systemVersion)") { activity in
-
+            
             app.launchArguments += argumentsParameters
-
             for (key, value) in environmentParameters {
                 app.launchEnvironment[key] = value
             }
             XCTContext.runActivity(named: "Env: \(app.launchEnvironment)") { _ in }
             XCTContext.runActivity(named: "Arguments: \(app.launchArguments)") { _ in }
+            
             continueAfterFailure = false
             app.launch()
             activity.add(takeFullScreenshot())

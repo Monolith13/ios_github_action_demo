@@ -31,6 +31,11 @@ Install pods
 fastlane ios clean_caches
 ```
 Clean caches
+### ios test_single_mode
+```
+fastlane ios test_single_mode
+```
+Run tests in single thread
 
 ----
 
