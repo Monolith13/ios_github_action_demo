@@ -28,4 +28,11 @@ platform :ios do
     )
   end  
 
+  desc 'Clean caches'
+  lane :clean_caches do
+    sh('rm -rf ../DerivedData')
+    sh('rm -rf ../Pods')
+    sh('rm -rf ../Builds')
+  end  
+
 end

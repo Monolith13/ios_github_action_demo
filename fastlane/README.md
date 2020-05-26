@@ -26,6 +26,11 @@ Build iOS simulator app
 fastlane ios install_pods
 ```
 Install pods
+### ios clear_caches
+```
+fastlane ios clear_caches
+```
+Clear caches
 
 ----
 
