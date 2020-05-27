@@ -1,14 +1,20 @@
-
 # ENG
-Demo project of iOS app for Github Action
+Demo project of iOS app (include Pods + Fastlane) is intergated with Github Action (CI/CD)
 
 # RUS
-Пробный проект интеграции iOS приложения (Pods + Fastlane) с CI Github Action
+Пробный проект интеграции iOS приложения (Pods + Fastlane) с Github Action
 
-### Запуск
-Выполнить в терминале:
+### Requirements / Требования
+
++ macOS: ≥ 10.15.2
++ Ruby: ≥ 2.6.0
++ Xcode: ≥ 11.5
+
+### Local launch / Локальный запуск
+The actual launch is as simple as: / Просто выполни в терминале:
 ``` 
 bundle install
 fastlane ios install_pods
 fastlane ios build_simulator_app
+fastlane ios test_single_mode
 ```
