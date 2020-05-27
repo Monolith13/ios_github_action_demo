@@ -26,11 +26,11 @@ Build iOS simulator app
 fastlane ios install_pods
 ```
 Install pods
-### ios clean_caches
+### ios clear_caches
 ```
-fastlane ios clean_caches
+fastlane ios clear_caches
 ```
-Clean caches
+Clear caches
 ### ios test_single_mode
 ```
 fastlane ios test_single_mode

@@ -3,19 +3,15 @@ default_platform(:ios)
 
 platform :ios do
 
-  $derivedDataPath = './DerivedData/'
-  $uiTestScheme = 'GithubActionDemo'
-  $builds_path = './Builds/'
-
   desc 'Build iOS simulator app'
   lane :build_simulator_app do
     gym(
-      scheme: $uiTestScheme,
+      scheme: 'GithubActionDemo',
       configuration: "Debug",
       skip_archive: true, 
       skip_package_ipa: true,
       destination: "generic/platform=iOS Simulator",
-      derived_data_path: $derivedDataPath,
+      derived_data_path: './DerivedData/',
       xcargs: "-sdk iphonesimulator ONLY_ACTIVE_ARCH=YES build-for-testing COMPILER_INDEX_STORE_ENABLE=NO"
     )
     sh('mkdir -p ../Builds && cp -r ../DerivedData/Build/Products/Debug-iphonesimulator/GithubActionDemo.app $_')
@@ -30,8 +26,8 @@ platform :ios do
     )
   end  
 
-  desc 'Clean caches'
-  lane :clean_caches do
+  desc 'Clear caches'
+  lane :clear_caches do
     sh('rm -rf ../DerivedData')
     sh('rm -rf ../Pods')
     sh('rm -rf ../Builds')
@@ -40,13 +36,13 @@ platform :ios do
   desc 'Run tests in single thread'
   lane :test_single_mode do
     run_tests(
-      scheme: $uiTestsScheme, 
-      derived_data_path: $derived_data_path,
+      scheme: 'GithubActionDemo', 
+      derived_data_path: './DerivedData/',
       test_without_building: true,
       skip_build: true,
       reset_simulator: true,
       result_bundle: true,
-      output_directory: $builds_path,
+      output_directory: './Builds/',
       device: 'iPhone 8',
       disable_slide_to_type: true,
       disable_concurrent_testing: true
