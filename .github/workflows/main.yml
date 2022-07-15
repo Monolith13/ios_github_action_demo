@@ -1,48 +1,18 @@
-name: CI
+name: Just PWD
 
-# Triggers
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  workflow_dispatch
+
 
 jobs:
   build:
-    runs-on: self_mbp16
+    runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Get source code 🚀
+      uses: actions/checkout@v2
         
-    - name: Clear caches via Fastlane 🚀
-      uses: maierj/fastlane-action@v1.4.0
-      with:
-        lane: 'clear_caches'    
-        
-    - name: Install pods via Fastlane 🚀
-      uses: maierj/fastlane-action@v1.4.0
-      with:
-        lane: 'install_pods'
-        
-    - name: Build app via Fastlane 🚀
-      uses: maierj/fastlane-action@v1.4.0
-      with:
-        lane: 'build_simulator_app'
-        
-    - name: Run UI-tests via Fastlane 🚀
-      uses: maierj/fastlane-action@v1.4.0
-      with:
-        lane: 'test_single_mode'
-
-    - name: Upload build 🚛
-      uses: actions/upload-artifact@v1
-      with:
-        name: build.app
-        path: ./Builds/GithubActionDemo.app
-
-    - name: Upload test results 🚛
-      uses: actions/upload-artifact@v1
-      with:
-        name: GithubActionDemo.xcresult
-        path: ./Builds/GithubActionDemo.xcresult
+    - name: Run simple command
+      run: |
+        pwd
         
