@@ -14,7 +14,7 @@ Demo project of iOS app (include Pods + Fastlane) is intergated with Github Acti
 The actual launch is as simple as: / Просто выполни в терминале:
 ``` 
 bundle install
-fastlane ios install_pods
-fastlane ios build_simulator_app
-fastlane ios test_single_mode
+bundle exec fastlane ios install_pods
+bundle exec fastlane ios build_simulator_app
+bundle exec fastlane ios test_single_mode
 ```
